@@ -41,6 +41,13 @@ def battle(player_pokemon, bot_pokemon):
        print(f'{bot_pokemon['name']} base {win_choice} is {bot_charac}.'),
 
 
+   if player_charac > bot_charac:
+       print('Player Wins!'),
+   elif bot_charac > player_charac:
+       print('Bot Wins!')
+   else:
+       print("It's a draft!")
+
 
 def play():
     player_pokemon_id = random_pokemon()
