@@ -21,4 +21,15 @@ def api_call():
 
 api_call()
 
+def play():
+    player_pokemon = random_pokemon()
+    bot_pokemon = random_pokemon()
+
+    print(f'Your pokemon is {player_pokemon['name']}'),
+    print(f'Bot pokemon is {bot_pokemon['name']}'),
+    
+
+
+
+
 
