@@ -19,33 +19,36 @@ def api_call(id):
     }
 
 def battle(player_pokemon, bot_pokemon):
-   win_choice = input(f'Which characteristic of {player_pokemon['name']} '
-                      f'will beat {bot_pokemon['name']}? (id/height/weight/experience) ')
+    win = input(f'Which characteristic of {player_pokemon['name']} '
+                f'will win against {bot_pokemon['name']}? (id/height/weight/experience) ')
+    win_choice = win.lower()
+
+    bot_charac = bot_pokemon[win_choice]
+    player_charac = player_pokemon[win_choice]
+
+    bot_charac = bot_pokemon[win_choice]
+    player_charac = player_pokemon[win_choice]
 
 
-   bot_charac = bot_pokemon[win_choice]
-   player_charac = player_pokemon[win_choice]
-
-
-   if win_choice == 'id':
+    if win_choice == 'id':
        print(f'{player_pokemon['name']} {win_choice} is {player_charac}')
        print(f'{bot_pokemon['name']} {win_choice} is {bot_charac}'),
-   elif win_choice == 'height':
+    elif win_choice == 'height':
        print(f'{player_pokemon['name']} {win_choice} is {player_charac / 10}m.')
        print(f'{bot_pokemon['name']} {win_choice} is {bot_charac / 10}m.'),
-   elif win_choice == 'weight':
+    elif win_choice == 'weight':
        print(f'{player_pokemon['name']} {win_choice}s {player_charac / 10}kg.')
        print(f'{bot_pokemon['name']} {win_choice}s {bot_charac / 10}kg.'),
-   elif win_choice == 'experience':
+    elif win_choice == 'experience':
        print(f'{player_pokemon['name']} base {win_choice} is {player_charac}.')
        print(f'{bot_pokemon['name']} base {win_choice} is {bot_charac}.'),
 
 
-   if player_charac > bot_charac:
+    if player_charac > bot_charac:
        print('Player Wins!'),
-   elif bot_charac > player_charac:
+    elif bot_charac > player_charac:
        print('Bot Wins!')
-   else:
+    else:
        print("It's a draft!")
 
 
