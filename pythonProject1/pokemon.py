@@ -19,9 +19,9 @@ def api_call(id):
     }
 
 def battle(player_pokemon, bot_pokemon):
-    win = input(f'Which characteristic of {player_pokemon['name']} '
+    characteristic = input(f'Which characteristic of {player_pokemon['name']} '
                 f'will win against {bot_pokemon['name']}? (id/height/weight/experience) ')
-    win_choice = win.lower()
+    win_choice = characteristic.lower()
 
     bot_charac = bot_pokemon[win_choice]
     player_charac = player_pokemon[win_choice]
@@ -80,7 +80,6 @@ def play():
             print(f'Bot pokemon is {bot_pokemon['name']}'),
             battle(player_pokemon, bot_pokemon)
             break
-
 
 
 play()
