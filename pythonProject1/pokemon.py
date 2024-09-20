@@ -26,9 +26,6 @@ def battle(player_pokemon, bot_pokemon):
     bot_charac = bot_pokemon[win_choice]
     player_charac = player_pokemon[win_choice]
 
-    bot_charac = bot_pokemon[win_choice]
-    player_charac = player_pokemon[win_choice]
-
 
     if win_choice == 'id':
        print(f'{player_pokemon['name']} {win_choice} is {player_charac}')
@@ -53,15 +50,31 @@ def battle(player_pokemon, bot_pokemon):
 
 
 def play():
-    player_pokemon_id = random_pokemon()
-    player_pokemon = api_call(player_pokemon_id)
+    player_options = []
+    available_ids = []
 
-    bot_pokemon_id = random_pokemon()
-    bot_pokemon = api_call(bot_pokemon_id)
+    for i in range(0, 3):
+        player_pokemon_id = random_pokemon()
+        pokemon = api_call(player_pokemon_id)
+        player_options.append(pokemon)
 
-    print(f'Your pokemon is {player_pokemon['name']}'),
-    print(f'Bot pokemon is {bot_pokemon['name']}'),
-    battle(player_pokemon, bot_pokemon)
+        pokemon_id = pokemon['id']
+        available_ids.append(str(pokemon_id))
+
+        print(pokemon_id)
+
+    player_choice = input(f"Choose one of the 3 pokemon ID's above. ")
+
+    for player_pokemon in player_options:
+        if str(player_pokemon['id']) == player_choice:
+            bot_pokemon_id = random_pokemon()
+            bot_pokemon = api_call(bot_pokemon_id)
+
+            print(f'Your pokemon is {player_pokemon['name']}'),
+            print(f'Bot pokemon is {bot_pokemon['name']}'),
+            battle(player_pokemon, bot_pokemon)
+            break
+
 
 
 play()
