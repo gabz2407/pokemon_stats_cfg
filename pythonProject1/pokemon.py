@@ -18,6 +18,29 @@ def api_call(id):
         'experience': pokemon['base_experience']
     }
 
+def battle(player_pokemon, bot_pokemon):
+   win_choice = input(f'Which characteristic of {player_pokemon['name']} '
+                      f'will beat {bot_pokemon['name']}? (id/height/weight/experience) ')
+
+
+   bot_charac = bot_pokemon[win_choice]
+   player_charac = player_pokemon[win_choice]
+
+
+   if win_choice == 'id':
+       print(f'{player_pokemon['name']} {win_choice} is {player_charac}')
+       print(f'{bot_pokemon['name']} {win_choice} is {bot_charac}'),
+   elif win_choice == 'height':
+       print(f'{player_pokemon['name']} {win_choice} is {player_charac / 10}m.')
+       print(f'{bot_pokemon['name']} {win_choice} is {bot_charac / 10}m.'),
+   elif win_choice == 'weight':
+       print(f'{player_pokemon['name']} {win_choice}s {player_charac / 10}kg.')
+       print(f'{bot_pokemon['name']} {win_choice}s {bot_charac / 10}kg.'),
+   elif win_choice == 'experience':
+       print(f'{player_pokemon['name']} base {win_choice} is {player_charac}.')
+       print(f'{bot_pokemon['name']} base {win_choice} is {bot_charac}.'),
+
+
 
 def play():
     player_pokemon_id = random_pokemon()
@@ -28,6 +51,7 @@ def play():
 
     print(f'Your pokemon is {player_pokemon['name']}'),
     print(f'Bot pokemon is {bot_pokemon['name']}'),
+    battle(player_pokemon, bot_pokemon)
 
 
 play()
