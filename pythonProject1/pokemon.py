@@ -65,6 +65,10 @@ def play():
 
     player_choice = input(f"Choose one of the 3 pokemon ID's above. ")
 
+    while player_choice not in available_ids:
+        print("Please choose from one of the provided ID's.")
+        player_choice = input(f"Choose one of the 3 pokemon ID's above. ")
+
     for player_pokemon in player_options:
         if str(player_pokemon['id']) == player_choice:
             bot_pokemon_id = random_pokemon()
