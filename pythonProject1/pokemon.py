@@ -1,9 +1,12 @@
 import requests
 import random
+def random_pokemon():
+    id_list = range(1, 52)
+    id = random.choice(id_list)
+    return id
 
-
-def api_call(id):
-    url = f'https://pokeapi.co/api/v2/pokemon/{id}/'
+def api_call():
+    url = f'https://pokeapi.co/api/v2/pokemon/{random_pokemon()}/'
     response = requests.get(url)
     pokemon = response.json()
 
@@ -16,6 +19,6 @@ def api_call(id):
     }
 
 
-
+api_call()
 
 
