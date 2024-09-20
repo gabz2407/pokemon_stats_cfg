@@ -69,6 +69,8 @@ def play():
         if str(player_pokemon['id']) == player_choice:
             bot_pokemon_id = random_pokemon()
             bot_pokemon = api_call(bot_pokemon_id)
+            while player_pokemon['id'] == bot_pokemon['id']:
+                bot_pokemon = random_pokemon()
 
             print(f'Your pokemon is {player_pokemon['name']}'),
             print(f'Bot pokemon is {bot_pokemon['name']}'),
