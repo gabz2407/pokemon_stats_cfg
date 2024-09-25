@@ -17,6 +17,7 @@ def api_call(id):
         'weight': pokemon['weight'],
         'experience': pokemon['base_experience']
     }
+    
 
 def battle(player_pokemon, bot_pokemon):
     characteristic = input(f'Which characteristic of {player_pokemon['name']} '
